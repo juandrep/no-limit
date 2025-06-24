@@ -6,6 +6,7 @@ import {
   createContext,
   useContext,
   type ReactNode,
+  type FC,
 } from "react";
 
 interface User {
@@ -33,7 +34,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 

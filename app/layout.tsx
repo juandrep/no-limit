@@ -1,28 +1,33 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { AuthProvider } from "@/hooks/use-auth"
-import { ThemeProvider } from "@/hooks/use-theme"
-import { PageTransition } from "@/components/page-transition"
-import { ScrollToTop } from "@/components/scroll-to-top"
-import { LoadingProvider } from "@/contexts/loading-context"
-import { ToastProvider } from "@/contexts/toast-context"
-import { ThemeToastContext } from "@/components/theme-toast-context"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/hooks/use-theme";
+import { PageTransition } from "@/components/page-transition";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { LoadingProvider } from "@/contexts/loading-context";
+import { ToastProvider } from "@/contexts/toast-context";
+import { ThemeToastContext } from "@/components/theme-toast-context";
 
-const inter = Inter({ subsets: ["latin"] })
+// Dynamic import for client components
+import dynamic from "next/dynamic";
+const AuthProvider = dynamic(
+  () => import("@/hooks/use-auth").then((mod) => mod.AuthProvider),
+  { ssr: false }
+);
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "No Limit Radio - Your Music, No Limits",
   description: "Stream the best Hip-Hop, R&B, and Rock/Pop music 24/7",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -46,5 +51,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
