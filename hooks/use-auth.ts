@@ -6,10 +6,7 @@ import {
   createContext,
   useContext,
   type ReactNode,
-  JSX,
 } from "react";
-
-import React from "react";
 
 interface User {
   id: string;
@@ -36,11 +33,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const AuthProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}): JSX.Element => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -185,10 +178,10 @@ export const AuthProvider = ({
   );
 };
 
-export function useAuth() {
+export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
-}
+};
