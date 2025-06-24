@@ -10,13 +10,6 @@ import { LoadingProvider } from "@/contexts/loading-context";
 import { ToastProvider } from "@/contexts/toast-context";
 import { ThemeToastContext } from "@/components/theme-toast-context";
 
-// Dynamic import for client components
-import dynamic from "next/dynamic";
-const AuthProvider = dynamic(
-  () => import("@/hooks/use-auth").then((mod) => mod.AuthProvider),
-  { ssr: false }
-);
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -35,17 +28,15 @@ export default function RootLayout({
         <ThemeProvider>
           <ToastProvider>
             <LoadingProvider>
-              <AuthProvider>
-                <div className="min-h-screen flex flex-col">
-                  <Navbar />
-                  <main className="flex-1">
-                    <PageTransition>{children}</PageTransition>
-                  </main>
-                  <Footer />
-                </div>
-                <ScrollToTop />
-                <ThemeToastContext />
-              </AuthProvider>
+              <div className="min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-1">
+                  <PageTransition>{children}</PageTransition>
+                </main>
+                <Footer />
+              </div>
+              <ScrollToTop />
+              <ThemeToastContext />
             </LoadingProvider>
           </ToastProvider>
         </ThemeProvider>
