@@ -25,11 +25,10 @@ const stations = [
     id: "hip-hop",
     name: "Hip-Hop Station",
     description: "The hottest hip-hop tracks from underground to mainstream",
-    streamUrl:
-      "https://playerservices.streamtheworld.com/api/livestream-redirect/WQHTFMAAC.aac",
+    streamUrl: "https://radio.nolimit.pt/listen/nol/radio.mp3",
     fallbackUrls: [
-      "https://playerservices.streamtheworld.com/api/livestream-redirect/WQHTFMAAC.aac",
-      "https://playerservices.streamtheworld.com/api/livestream-redirect/WQHTFMAAC.aac",
+      "https://radio.nolimit.pt/listen/nol/radio.mp3",
+      "https://radio.nolimit.pt/listen/nol/radio.mp3",
     ],
     currentTrack: "Loading",
     listeners: "Loading",
@@ -50,10 +49,10 @@ const stations = [
     id: "rnb",
     name: "R&B Station",
     description: "Classic and contemporary R&B that moves your soul",
-    streamUrl: "https://streaming.silvacast.com/DEFJAY.mp3",
+    streamUrl: "https://radio.nolimit.pt/listen/rb/radio.mp3",
     fallbackUrls: [
-      "https://streaming.silvacast.com/DEFJAY.mp3",
-      "https://streaming.silvacast.com/DEFJAY.mp3",
+      "https://radio.nolimit.pt/listen/rb/radio.mp3",
+      "https://radio.nolimit.pt/listen/rb/radio.mp3",
     ],
     currentTrack: "Loading",
     listeners: "Loading",
